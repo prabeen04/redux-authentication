@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import { loginUser } from './actions/user_login'
 import './App.css';
@@ -16,12 +16,9 @@ class App extends Component {
     return (
       <div>
         <Switch>
-          <Route exact path="/" component={Login} />
-          <Route exact path="/home" component={Home}/>
+          <Route exact path="/" component={Home}/>
+          <Route exact path="/login" component={Login}/>
         </Switch>
-        {this.props.isLoggedIn
-          ? <h1>App Component</h1>
-          : <h2>you are not logged in...</h2>}
       </div>
     );
   }
@@ -51,6 +48,13 @@ const Login = () => {
   return (
     <div>
       <h1>login commponent</h1>
+    </div>
+  )
+}
+const About = () => {
+  return (
+    <div>
+      <h1>About commponent</h1>
     </div>
   )
 }
