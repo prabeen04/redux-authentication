@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
-import { bindActionCreators } from 'redux'
-import { loginUser } from './actions/user_login'
+import { connect } from 'react-redux';
+import { history } from 'history';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
+import { loginUser } from './actions/user_login';
+import Login from './components/login/login'
 import './App.css';
 
 class App extends Component {
-  componentDidMount() {
-    setTimeout(() => {
-      this.props.loginUser()
-    }, 4000)
-
-  }
   render() {
+    if(this.props.isLoggedIn){
+      <Redirect to='/login' />
+    }
     return (
       <div>
         <Switch>
@@ -40,21 +39,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(App);
   return (
     <div>
       <h1>home commponent</h1>
-    </div>
-  )
-}
-
-const Login = () => {
-  return (
-    <div>
-      <h1>login commponent</h1>
-    </div>
-  )
-}
-const About = () => {
-  return (
-    <div>
-      <h1>About commponent</h1>
     </div>
   )
 }
