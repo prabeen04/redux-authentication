@@ -1,6 +1,6 @@
 
 // Authentication HOC
-const Authentication = (WrappedComponent, allowedRoles) =>{
+const Authentication = (WrappedComponent) =>{
   return class WithAuthentication extends React.Component {
     constructor(props) {
       super(props)
@@ -9,17 +9,16 @@ const Authentication = (WrappedComponent, allowedRoles) =>{
       // Redux, MobX, RxJS, Backbone...
       this.state = {
         user: {
-          name: 'vcarl',
-          role: 'admin'
+          name: 'prabeen'
         }
       }
     }
     render() {
       const { role } = this.state.user
-      if (allowedRoles.includes(role)) {
-        return <WrappedComponent {...this.props} />
+      if (this.state.user) {
+        return <WrappedComponent user={this.state.user} {...this.props} />
       } else {
-        return <h1>No page for you!</h1>
+        return <h1>You are Not Authenticated...</h1>
       }
     }
   }
