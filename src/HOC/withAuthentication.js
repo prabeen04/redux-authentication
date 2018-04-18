@@ -1,4 +1,6 @@
 import React from 'react'
+import { connect } from 'react-redux'
+
 // Authentication HOC
 const Authentication = (WrappedComponent) =>{
   return class WithAuthentication extends React.Component {
@@ -7,20 +9,19 @@ const Authentication = (WrappedComponent) =>{
 
       // In this case the user is hardcoded, but it could be loaded from anywhere.
       // Redux, MobX, RxJS, Backbone...
-      this.state = {
-        user: {
-          name: 'prabeen'
-        }
-      }
     }
     render() {
-      const { role } = this.state.user
       if (this.state.user) {
-        return <WrappedComponent user={this.state.user} {...this.props} />
+        return <WrappedComponent isLoggedIn={this.props.isLoggedIn} {...this.props} />
       } else {
         return <h1>You are Not Authenticated...</h1>
       }
     }
   }
 }
-export default Authentication;
+const mapStateToProps = (state) => {
+    return{
+        isLoggedIn: state.sessionReducer.isLoggedIn
+    }
+}
+export default connect(mapStateToProps)(Authentication);
