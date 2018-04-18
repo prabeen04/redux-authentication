@@ -1,4 +1,4 @@
-
+import React from 'react'
 // Authentication HOC
 const Authentication = (WrappedComponent) =>{
   return class WithAuthentication extends React.Component {
@@ -23,4 +23,4 @@ const Authentication = (WrappedComponent) =>{
     }
   }
 }
-export default Authentication(YourRoute, ['manager', 'admin'])
+export default Authentication;

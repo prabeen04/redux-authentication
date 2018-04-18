@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
+import authentication from '../../HOC/withAuthentication'
 
 class Dashboard extends Component {
+    constructor(props){
+        super(props)
+    console.log(this.props)
+    }
+
   render() {
     return (
       <div>
@@ -10,4 +16,4 @@ class Dashboard extends Component {
   }
 }
 
-export default Dashboard;
+export default authentication(Dashboard);
