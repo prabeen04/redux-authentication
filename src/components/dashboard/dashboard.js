@@ -15,12 +15,12 @@ class Dashboard extends Component {
     return (
       <div>
         <h1>Dashboard Component</h1>
-        <Link to="/protected">Protected</Link>
-        <Link to="/private">Private</Link>
+        {/* <Link to="/protected">Protected</Link>
+        <Link to="/private">Private</Link> */}
 
         <Switch>
-          <Route exact to="/private" component={Private}/>
-          <Route exact to="/protected" component={Protected}/>
+          <Route path="/private" component={Private}/>
+          <Route path="/protected" component={Protected}/>
           <Route path="*" component={NotFound} />
         </Switch>  
 
