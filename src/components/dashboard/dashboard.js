@@ -13,10 +13,7 @@ class Dashboard extends Component {
     return (
       <div>
         <h1>Dashboard Component</h1>
-        <Link to="/protected">Home</Link>
-        <Switch>
-          <PrivateRoute exact to="/protected" component={Protected}/>
-        </Switch>
+        <Link to="/protected">Protected</Link>
       </div>
     )
   }

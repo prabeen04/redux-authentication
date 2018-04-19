@@ -1,5 +1,5 @@
 const initialState={
-    isLoggedIn: false
+    isLoggedIn: true
 }
 
 export const sessionReducer = (state=initialState, action) => {
