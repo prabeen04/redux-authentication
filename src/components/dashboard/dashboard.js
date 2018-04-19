@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import authentication from '../../HOC/withAuthentication'
 
 class Dashboard extends Component {
     constructor(props){
@@ -16,4 +15,4 @@ class Dashboard extends Component {
   }
 }
 
-export default authentication(Dashboard);
+export default Dashboard;
