@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route, Redirect, Link } from 'react-router-dom';
 import PrivateRoute from './components/auth/authentication';
 import Dashboard from './components/dashboard/dashboard';
@@ -14,10 +13,8 @@ class App extends Component {
   render() {
     return (
       <div>
-       { this.props.isLoggedIn && <div>
-         <Link to="/protected">Protected</Link>
+       <Link to="/protected">Protected</Link>
         <Link to="/private">Private</Link>
-        </div>}
         <Switch>
           <Route exact path="/login" component={Login} />
           <PrivateRoute exact path="/" component={Dashboard} />
@@ -29,10 +26,5 @@ class App extends Component {
     );
   }
 }
-const mapStateToProps = (state) => {
-  return {
-      isLoggedIn: state.sessionReducer.isLoggedIn
-  }
-}
 
-export default connect(mapStateToProps)(App);
+export default App
