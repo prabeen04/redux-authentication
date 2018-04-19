@@ -3,6 +3,7 @@ import { Switch, Route, Link } from 'react-router-dom';
 import PrivateRoute from '../auth/authentication'
 import Protected from '../protected/protected';
 import Private from '../private/private';
+import NotFound from '../notfound/notfound';
 
 class Dashboard extends Component {
   constructor(props) {
@@ -20,6 +21,7 @@ class Dashboard extends Component {
         <Switch>
           <Route exact to="/private" component={Private}/>
           <Route exact to="/protected" component={Protected}/>
+          <Route path="*" component={NotFound} />
         </Switch>  
 
       </div>

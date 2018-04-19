@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import PrivateRoute from './components/auth/authentication';
 import Dashboard from './components/dashboard/dashboard';
 import Protected from './components/protected/protected';
+import Private from './components/private/private';
 import Login from './components/login/login';
 import NotFound from './components/notfound/notfound';
 
@@ -12,11 +13,11 @@ class App extends Component {
   render() {
     return (
       <div>
-        {/* <Route exact path="/" component={Dashboard} /> */}
-        <Route exact path="/login" component={Login} />
-        <Route exact path="**" component={NotFound} />
         <Switch>
+          <Route exact path="/login" component={Login} />
           <PrivateRoute exact path="/" component={Dashboard} />
+          <PrivateRoute exact path="/private" component={Private} />
+          <PrivateRoute exact path="/protected" component={Protected} />
         </Switch>
       </div>
     );
