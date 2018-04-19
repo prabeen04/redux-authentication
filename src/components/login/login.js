@@ -9,7 +9,7 @@ class Login extends Component {
       <div>
         <h1>login commponent</h1>
         <button onClick={() => this.props.loginUser()}>Login</button>
-        <Link to="/protected">protected</Link>
+        <Link to="/">Dashboard</Link>
       </div>
     )
   }

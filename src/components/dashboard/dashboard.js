@@ -19,6 +19,7 @@ class Dashboard extends Component {
 
         <Switch>
           <Route exact to="/private" component={Private}/>
+          <Route exact to="/protected" component={Protected}/>
         </Switch>  
 
       </div>
