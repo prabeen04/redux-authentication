@@ -1,10 +1,11 @@
-import React, { Component } from 'react'
-
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 class Protected extends Component {
   render() {
     return (
       <div>
         <h1>Protected Route</h1>
+        <Link to="/">home</Link>
       </div>
     )
   }

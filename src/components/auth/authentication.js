@@ -4,17 +4,17 @@ import { connect } from 'react-redux';
 
 const PrivateRoute = ({ component: Component, isLoggedIn, ...rest }) => (
     <Route
-      {...rest}
-      render={props =>
-        isLoggedIn=== true ? (
-          <Component {...props} />
-        ) : (
-          <Redirect to="/login" />
-        )
-      }
+        {...rest}
+        render={props =>
+            isLoggedIn === true ? (
+                <Component {...props} />
+            ) : (
+                    <Redirect to="/login" />
+                )
+        }
     />
-  );
-  
+);
+
 const mapStateToProps = (state) => {
     return {
         isLoggedIn: state.sessionReducer.isLoggedIn

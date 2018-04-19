@@ -11,8 +11,11 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Route exact path="/" component={Dashboard} />
+        {/* <Route exact path="/" component={Dashboard} /> */}
         <Route exact path="/login" component={Login} />
+        <Switch>
+          <PrivateRoute exact path="/" component={Dashboard} />
+        </Switch>
         <Switch>
           <PrivateRoute exact path="/protected" component={Protected} />
         </Switch>
