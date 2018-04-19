@@ -11,7 +11,8 @@ class App extends Component {
   render() {
     return (
       <div>
-          <PrivateRoute exact path="/" component={Protected}/>
+          {/* <PrivateRoute exact path="/" component={Protected}/> */}
+          <Route exact path="/" component={Dashboard}/>
           <Route exact path="/login" component={Login}/>
       </div>
     );
