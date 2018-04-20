@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route, Link, withRouter } from 'react-router-dom';
 import PrivateRoute from '../auth/authentication'
+import Authorization from '../../HOC/withAuthorization';
 import Protected from '../protected/protected';
 import Private from '../private/private';
 import Settings from '../settings/settings';
@@ -53,7 +54,7 @@ class Dashboard extends Component {
           <Content>
             <Switch>
               <Route exact path="/" component={Private} />
-              <Route exact path="/protected" component={Protected} />
+              <Route exact path="/protected" component={Authorization(Protected, ['manager', 'admin'])} />
               <Route exact path="/settings" component={Settings} />
               <Route exact path="*" component={NotFound} />
             </Switch>
