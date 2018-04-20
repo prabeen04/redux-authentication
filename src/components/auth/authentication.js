@@ -21,4 +21,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default withRouter(connect(mapStateToProps, null, null, {pure: false})(PrivateRoute));
+export default withRouter(connect(mapStateToProps)(PrivateRoute));

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route, Redirect, Link, withRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route,  } from 'react-router-dom';
 import PrivateRoute from './components/auth/authentication';
 import Dashboard from './components/dashboard/dashboard';
 import Protected from './components/protected/protected';
@@ -26,4 +26,4 @@ class App extends Component {
   }
 }
 
-export default withRouter(App)
+export default App;

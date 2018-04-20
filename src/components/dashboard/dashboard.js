@@ -20,8 +20,8 @@ class Dashboard extends Component {
         <Link to='/settings'>Settings</Link>
         <Switch>
           <Route exact path="/" component={Private} />
-          <Route  path="/protected" component={Protected} />
-          <Route  path="/settings" component={Settings} />
+          <Route exact path="/protected" component={Protected} />
+          <Route exact path="/settings" component={Settings} />
         </Switch>
       </div>
     )
