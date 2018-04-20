@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 class Protected extends Component {
   render() {
     return (
@@ -11,4 +11,4 @@ class Protected extends Component {
   }
 }
 
-export default Protected;
+export default withRouter(Protected);

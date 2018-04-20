@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route, Redirect, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect, Link, withRouter } from 'react-router-dom';
 import PrivateRoute from './components/auth/authentication';
 import Dashboard from './components/dashboard/dashboard';
 import Protected from './components/protected/protected';
@@ -10,21 +10,20 @@ import NotFound from './components/notfound/notfound';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    console.log(this.props)
+  }
   render() {
     return (
-      <div>
-       <Link to="/protected">Protected</Link>
-        <Link to="/private">Private</Link>
+      <div>   
         <Switch>
           <Route exact path="/login" component={Login} />
-          <PrivateRoute exact path="/" component={Dashboard} />
-          <PrivateRoute exact path="/private" component={Private} />
-          <PrivateRoute exact path="/protected" component={Protected} />
-          <PrivateRoute exact path="*" component={NotFound} />
-        </Switch>
-      </div>
+          <PrivateRoute  path="/" component={Dashboard} />
+       </Switch>   
+      </div> 
     );
   }
 }
 
-export default App
+export default withRouter(App)

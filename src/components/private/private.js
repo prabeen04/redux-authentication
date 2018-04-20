@@ -1,7 +1,13 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { withRouter} from 'react-router-dom';
+
 
 class Private extends Component {
-  render() {
+  constructor(props) {
+    super(props)
+    console.log(this.props)
+  }
+    render() {
     return (
       <div>
         <h1>Private Component</h1>
@@ -10,4 +16,4 @@ class Private extends Component {
   }
 }
 
-export default Private;
+export default withRouter(Private);
