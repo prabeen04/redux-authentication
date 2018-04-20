@@ -5,8 +5,9 @@ import Protected from '../protected/protected';
 import Private from '../private/private';
 import Settings from '../settings/settings';
 import NotFound from '../notfound/notfound';
+import NavMenu from './navmenu';
 import './dashboard.css';
-import { Layout, Menu, Icon, Button } from 'antd';
+import { Layout, Menu, Icon, Button, Badge } from 'antd';
 const { Header, Sider, Content } = Layout;
 
 class Dashboard extends Component {
@@ -34,20 +35,23 @@ class Dashboard extends Component {
           style={{ height: '100vh' }}
         >
           <div className="logo" />
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-            <Menu.Item key="1">
-              <Icon type="user" />
-              <span>nav 1</span>
-            </Menu.Item>
-            <Menu.Item key="2">
-              <Icon type="video-camera" />
-              <span>nav 2</span>
-            </Menu.Item>
-            <Menu.Item key="3">
-              <Icon type="upload" />
-              <span>nav 3</span>
-            </Menu.Item>
-          </Menu>
+          <NavMenu
+            collapsed={this.state.collapsed}
+            toggleCollapsed={this.toggle} />
+          {/* <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+              <Menu.Item key="1">
+                  <Icon type="user" />
+                  <span>nav 1</span>
+              </Menu.Item>
+              <Menu.Item key="2">
+                  <Icon type="video-camera" />
+                  <span>nav 2</span>
+              </Menu.Item>
+              <Menu.Item key="3">
+                  <Icon type="upload" />
+                  <span>nav 3</span>
+              </Menu.Item>
+          </Menu> */}
         </Sider>
         <Layout>
           <Header style={{ background: '#fff', padding: 0 }}>
@@ -56,9 +60,38 @@ class Dashboard extends Component {
               type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
               onClick={this.toggle}
             />
+
+            <div style={{ float: 'right', marginRight: 10, border: '2px solid red' }}>
+              <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
+                <Menu.Item key="1">
+                  <Icon type="user" />
+                  <span>nav 1</span>
+                </Menu.Item>
+                <Menu.Item key="2">
+                  <Icon type="video-camera" />
+                  <span>nav 2</span>
+                </Menu.Item>
+                <Menu.Item key="3">
+                  <Icon type="upload" />
+                  <span>nav 3</span>
+                </Menu.Item>
+              </Menu>
+              <Badge count={5}>
+                <a href="#" className="head-example" />
+              </Badge>
+              <Badge count={1} >
+                <a href="#" className="head-example" />
+              </Badge>
+            </div>
           </Header>
-          <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
-            Content
+
+          <Content>
+            <Switch>
+              <Route exact path="/" component={Private} />
+              <Route exact path="/protected" component={Protected} />
+              <Route exact path="/settings" component={Settings} />
+              <Route exact path="*" component={NotFound} />
+            </Switch>
           </Content>
         </Layout>
       </Layout>
