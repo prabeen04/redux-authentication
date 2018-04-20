@@ -10,10 +10,15 @@ class Login extends Component {
     return (
       <div className="login-wrapper">
         <div className="login-box">
-          <h1>login commponent</h1>
+
+          <h1>login <Link to="/">Dashboard</Link></h1>
+          <div className="flex-container-column">
+          <input type="text" name="email"/>
+          <input type="password" name="password"/>
           <button onClick={() => this.props.loginUser()}>Login</button>
+          </div>
+          
         </div>
-        <Link to="/">Dashboard</Link>
       </div>
     )
   }
