@@ -8,16 +8,16 @@ import './login.css';
 class Login extends Component {
   render() {
     return (
-      <div className="login-wrapper">
-        <div className="login-box">
+      <div className="login-wrapper ">
+        <div className="login-box flex-container">
 
-          <h1>login <Link to="/">Dashboard</Link></h1>
+          <h1>login</h1>
           <div className="flex-container-column">
           <input type="text" name="email"/>
           <input type="password" name="password"/>
-          <button onClick={() => this.props.loginUser()}>Login</button>
+          <button onClick={() => this.props.loginUser()}>LOGIN</button>
           </div>
-          
+          <Link to="/">Dashboard</Link>
         </div>
       </div>
     )

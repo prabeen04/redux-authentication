@@ -8,11 +8,38 @@
     align-items: flex-end;
 }
 .login-box{
-    background: rgba(204, 204, 204, 0.712);
+    background: rgba(197, 194, 229, 0.712);
     padding: 2rem;
     margin: 2rem;
-    align-self: flex-start;
+    align-self: flex-end;
     border-radius: 0.5rem;
     height: 300px;
     width: 400px;
+}
+input{
+    border: none;
+    width: 350px;
+    height: 40px;
+    margin: 1rem;
+    border-radius: 0.5rem;
+    background: rgb(139, 148, 187); 
+    padding: 0.2rem;
+    font-size: 1.5rem;
+    transition: 0.3s all ease-in-out;
+}
+input:focus{
+    outline: none;
+    border-radius: 0.5rem;
+    background: rgba(56, 66, 151, 0.555); 
+    color: #fff;
+
+}
+button{
+    border: none;
+    height: 40px;
+    margin: 1rem;
+    padding: 1rem 2rem;
+    border-radius: 0.2rem;
+    background: rgb(56, 75, 180); 
+    color: #fff;
 }
