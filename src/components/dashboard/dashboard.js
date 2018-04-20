@@ -5,6 +5,7 @@ import Protected from '../protected/protected';
 import Private from '../private/private';
 import Settings from '../settings/settings';
 import NotFound from '../notfound/notfound';
+import './dashboard.css';
 import { Layout, Menu, Icon, Button } from 'antd';
 const { Header, Sider, Content } = Layout;
 
@@ -30,6 +31,7 @@ class Dashboard extends Component {
           trigger={null}
           collapsible
           collapsed={this.state.collapsed}
+          style={{ height: '100vh' }}
         >
           <div className="logo" />
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
