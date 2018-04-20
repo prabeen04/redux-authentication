@@ -31,15 +31,15 @@ class NavMenu extends React.Component {
                         </Link>
                     </Menu.Item>
                     <Menu.Item key="2">
-                        <Link to='/calendar'>
+                        <Link to='/protected'>
                             <Icon type="calendar" />
-                            <span>Calendar</span>
+                            <span>Protected</span>
                         </Link>
                     </Menu.Item>
                     <Menu.Item key="3">
-                        <Link to='/profile'>
+                        <Link to='/settings'>
                             <Icon type="profile" />
-                            <span>Profile</span>
+                            <span>Settings</span>
                         </Link>
                     </Menu.Item>
                     <Menu.Item key="4">
@@ -48,14 +48,6 @@ class NavMenu extends React.Component {
                             <span>Post</span>
                         </Link>
                     </Menu.Item>
-                    <SubMenu key="sub2" title={<span><Icon type="pie-chart" /><span>Navigation Two</span></span>}>
-                        <Menu.Item key="5">Option 9</Menu.Item>
-                        <Menu.Item key="6">Option 10</Menu.Item>
-                        <SubMenu key="sub3" title="Submenu">
-                            <Menu.Item key="7">Option 11</Menu.Item>
-                            <Menu.Item key="8">Option 12</Menu.Item>
-                        </SubMenu>
-                    </SubMenu>
                 </Menu>
             </div>
         );
