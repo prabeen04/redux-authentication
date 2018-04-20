@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect, withRouter } from 'react-router-dom';
 // Authorization HOC
 const Authorization = (WrappedComponent, allowedRoles) =>{
     class WithAuthorization extends React.Component {
@@ -18,7 +19,7 @@ const Authorization = (WrappedComponent, allowedRoles) =>{
           if (allowedRoles.includes(role)) {
             return <WrappedComponent {...this.props} />
           } else {
-            return <h1>No page for you!</h1>
+            return <Redirect to='/'/>
           }
         }
       }
