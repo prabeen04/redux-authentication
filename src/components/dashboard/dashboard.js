@@ -5,6 +5,7 @@ import Protected from '../protected/protected';
 import Private from '../private/private';
 import Settings from '../settings/settings';
 import NotFound from '../notfound/notfound';
+import { Button } from "antd";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -16,12 +17,14 @@ class Dashboard extends Component {
     return (
       <div>
         <h1>Dashboard Component</h1>
+        <Button type="primary">Button</Button>
         <Link to='/protected'>protected</Link>
         <Link to='/settings'>Settings</Link>
         <Switch>
           <Route exact path="/" component={Private} />
           <Route exact path="/protected" component={Protected} />
           <Route exact path="/settings" component={Settings} />
+          <Route exact path="*" component={NotFound} />
         </Switch>
       </div>
     )

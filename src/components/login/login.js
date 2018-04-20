@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux'
 import { Link } from 'react-router-dom';
 import { loginUser } from '../../actions/user_login'
 import './login.css';
+import { Button} from 'antd'
 
 class Login extends Component {
   render() {
@@ -11,11 +12,11 @@ class Login extends Component {
       <div className="login-wrapper ">
         <div className="login-box flex-container">
 
-          <h1>login</h1>
+          <h3>login</h3>
           <div className="flex-container-column">
-          <input type="text" name="email"/>
-          <input type="password" name="password"/>
-          <button onClick={() => this.props.loginUser()}>LOGIN</button>
+          <input type="text" name="email"/><br/>
+          <input type="password" name="password"/><br/>
+          <Button onClick={() => this.props.loginUser()} type="primary">LOGIN</Button>
           </div>
           <Link to="/">Dashboard</Link>
         </div>
