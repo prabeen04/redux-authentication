@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Field, reduxForm } from "redux-form";
 import { bindActionCreators } from 'redux'
 import { Link } from 'react-router-dom';
 import { loginUser } from '../../actions/user_login'
