@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter} from 'react-router-dom';
-
+import { BackTop } from 'antd';
+import './private.css';
 
 class Private extends Component {
   constructor(props) {
@@ -9,8 +10,9 @@ class Private extends Component {
   }
     render() {
     return (
-      <div>
+      <div className="private-wrapper">
         <h1>Private Component</h1>
+        <BackTop/>
       </div>
     )
   }
