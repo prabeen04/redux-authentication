@@ -2,22 +2,21 @@ import React from 'react';
 import { Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-const PrivateRoute = ({ component: Component, isLoggedIn, ...rest }) => (
+const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route
         {...rest}
         render={props =>
-            isLoggedIn === true ? (
-                <Component {...props} />
-            ) : (
-                  <Redirect to="/login" />
-                )
+            localStorage.getItem('token') ? <Component {...props} /> : <Redirect to="/login" />
+
         }
     />
 );
 
 const mapStateToProps = (state) => {
+    console.log(localStorage.token)
     return {
-        isLoggedIn: state.sessionReducer.isLoggedIn
+        isLoggedIn: state.sessionReducer.isLoggedIn,
+        token: state.sessionReducer.token || JSON.stringify(localStorage.getItem('token'))
     }
 }
 

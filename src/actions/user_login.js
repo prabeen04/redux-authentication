@@ -5,15 +5,13 @@ import history from '../helpers/history';
 const baseURL = 'https://prabeen-restapi.herokuapp.com/api/login';
 
 export const loginUser = (credential) => {
-    console.log(credential)
     return (dispatch) => {
         dispatch({
             type: LOGIN
         })
-        console.log('before login')
         return axios.post(`${baseURL}`, credential)
-            .then(response => {
-                history.push('/') 
+        .then(response => {
+            localStorage.setItem('token', response.data)
                 dispatch({
                     type: LOGIN_SUCCESS,
                     payload: response.data
