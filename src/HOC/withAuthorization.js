@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect, withRouter } from 'react-router-dom';
-import { message } from 'antd';
+import { Alert, message } from 'antd';
 
 // Authorization HOC
 const Authorization = (WrappedComponent, allowedRoles) =>{
@@ -22,6 +22,13 @@ const Authorization = (WrappedComponent, allowedRoles) =>{
           } else {
             console.log('not authorized');
             this.unauthorizedMessage();
+            <Alert
+              message="Error"
+              description="This is an error message about copywriting."
+              type="error"
+              showIcon
+              closable
+            />
             return <Redirect to='/'/>
           }
         }
