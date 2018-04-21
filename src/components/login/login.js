@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { loginUser } from '../../actions/user_login'
 import './login.css';
 import { Button, Icon, message } from 'antd'
@@ -38,6 +38,9 @@ class Login extends Component {
     })
   }
   render() {
+    if(this.props.isLoggedIn){
+      return <Redirect to='/' />
+    }
     return (
       <div className="login-wrapper ">
         <div className="login-box flex-container">

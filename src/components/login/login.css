@@ -32,7 +32,12 @@ input:focus{
     border-radius: 0.5rem;
     background: rgba(56, 66, 151, 0.555); 
     color: #fff;
-
+}
+input:active{
+    outline: none;
+    border-radius: 0.5rem;
+    background: rgba(56, 66, 151, 0.555); 
+    color: #fff;
 }
 button{
     border: none;
