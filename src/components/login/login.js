@@ -24,10 +24,6 @@ class Login extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.loginUser(this.state)
-    this.setState({
-      email: '',
-      password: ''
-    })
   }
   handleChange = (e) => {
     const name = e.target.name;
@@ -58,7 +54,6 @@ class Login extends Component {
             </div>
           </form>
           {this.props.error && this.loginError()}
-          <Link to="/">Dashboard</Link>
         </div>
       </div>
     )
