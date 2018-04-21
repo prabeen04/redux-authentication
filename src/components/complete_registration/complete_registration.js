@@ -34,7 +34,7 @@ class CompleteRegistration extends Component {
     const { current } = this.state;
     return (
       <div className="complete-registration">
-        <div>
+        <div className="steper-div">
           <Steps current={current}>
             {steps.map(item => <Step key={item.title} title={item.title} />)}
           </Steps>

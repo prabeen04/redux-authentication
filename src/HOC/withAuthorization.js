@@ -1,5 +1,6 @@
 import React from 'react';
 import { Redirect, withRouter } from 'react-router-dom';
+import { message } from 'antd';
 // Authorization HOC
 const Authorization = (WrappedComponent, allowedRoles) =>{
     class WithAuthorization extends React.Component {
@@ -19,6 +20,8 @@ const Authorization = (WrappedComponent, allowedRoles) =>{
           if (allowedRoles.includes(role)) {
             return <WrappedComponent {...this.props} />
           } else {
+            console.log('not authorized');
+           () => message.error('Processing complete!');
             return <Redirect to='/'/>
           }
         }
