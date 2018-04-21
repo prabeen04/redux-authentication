@@ -9,9 +9,10 @@ export const loginUser = (credential) => {
         dispatch({
             type: LOGIN
         })
-
+        console.log('before login')
         return axios.post(`${baseURL}`, credential)
             .then(response => {
+                console.log(response)
                 dispatch({
                     type: LOGIN_SUCCESS,
                     payload: response.data
@@ -20,8 +21,7 @@ export const loginUser = (credential) => {
             .catch(error => {
                 console.log(error)
                 dispatch({
-                    type: LOGIN_SUCCESS,
-                    payload: error
+                    type: LOGIN_FAILURE
                 })
             })
     }

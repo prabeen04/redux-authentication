@@ -4,45 +4,57 @@ import { bindActionCreators } from 'redux'
 import { Link } from 'react-router-dom';
 import { loginUser } from '../../actions/user_login'
 import './login.css';
-import { Button} from 'antd'
+import { Button, Icon, message } from 'antd'
 
 class Login extends Component {
-  constructor(props){
+  constructor(props) {
     super(props)
 
     this.state = {
-        email: '',
-        password: ''
+      email: '',
+      password: ''
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.loginError = this.loginError.bind(this);
   }
-  handleSubmit = () =>{
+   loginError = () => {
+    message.error(this.props.error, 5);
+  };
+  handleSubmit = (e) => {
+    e.preventDefault();
     this.props.loginUser(this.state)
     this.setState({
       email: '',
       password: ''
     })
   }
-  handleChange =(e) => {
+  handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
     // console.log(name,'---', value);
     this.setState({
       [name]: value
     })
-  } 
+  }
   render() {
     return (
       <div className="login-wrapper ">
         <div className="login-box flex-container">
 
           <h3>login</h3>
-          <div className="flex-container-column">
-          <input type="text" name="email" value={this.state.email} onChange={(e)=>this.handleChange(e)}/><br/>
-          <input type="password" name="password" value={this.state.password} onChange={(e)=>this.handleChange(e)}/><br/>
-          <Button onClick={this.handleSubmit} type="primary">LOGIN</Button>
-          </div>
+          <form onSubmit={(e) => this.handleSubmit(e)}>
+            <div className="flex-container-column">
+              <input type="email" name="email"
+                value={this.state.email}
+                onChange={(e) => this.handleChange(e)} required /><br />
+              <input type="password" name="password"
+                value={this.state.password}
+                onChange={(e) => this.handleChange(e)} required /><br />
+              <Button type="primary" loading={this.props.loggingIn} htmlType="submit" >LOGIN</Button>
+            </div>
+          </form>
+          {this.props.error && this.loginError()}
           <Link to="/">Dashboard</Link>
         </div>
       </div>
@@ -52,7 +64,9 @@ class Login extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    isLoggedIn: state.sessionReducer.isLoggedIn
+    isLoggedIn: state.sessionReducer.isLoggedIn,
+    loggingIn: state.sessionReducer.loggingIn,
+    error: state.sessionReducer.error,
   }
 }
 const mapDispatchToProps = (dispatch) => {
