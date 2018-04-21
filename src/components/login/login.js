@@ -11,19 +11,23 @@ class Login extends Component {
     super(props)
 
     this.state = {
-      credentials: {
         email: '',
         password: ''
-      }
     }
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
-
+  handleSubmit = () =>{
+    this.props.loginUser(this.state)
+    this.setState({
+      email: '',
+      password: ''
+    })
+  }
   handleChange =(e) => {
-    console.log(e.target.value)
     const name = e.target.name;
     const value = e.target.value;
-    console.log(name,'---', value);
+    // console.log(name,'---', value);
     this.setState({
       [name]: value
     })
@@ -35,12 +39,9 @@ class Login extends Component {
 
           <h3>login</h3>
           <div className="flex-container-column">
-          <input type="text" name="email" onChange={(e)=>this.handleChange(e)}/><br/>
-          <input type="password" name="password" onChange={(e)=>this.handleChange(e)}/><br/>
-          <Button onClick={() =>{
-            console.log(this.state.credentials)
-             this.props.loginUser(this.state.credentials)}
-             } type="primary">LOGIN</Button>
+          <input type="text" name="email" value={this.state.email} onChange={(e)=>this.handleChange(e)}/><br/>
+          <input type="password" name="password" value={this.state.password} onChange={(e)=>this.handleChange(e)}/><br/>
+          <Button onClick={this.handleSubmit} type="primary">LOGIN</Button>
           </div>
           <Link to="/">Dashboard</Link>
         </div>
