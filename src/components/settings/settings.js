@@ -10,7 +10,7 @@ class Settings extends Component {
     return (
       <div className="settings-wrapper">
         <Tabs
-          defaultActiveKey="2"
+          defaultActiveKey="1"
           tabBarStyle={{ display: 'flex', justifyContent: 'center' }}>
           <TabPane tab={<span><Icon type="apple" />Apple Setting</span>} key="1">
             <div className="tab-content">
@@ -19,7 +19,7 @@ class Settings extends Component {
           </TabPane>
           <TabPane tab={<span><Icon type="android" />Android Setting</span>} key="2">
             <div className="tab-content">
-
+                <h2>setting 2 section</h2>
             </div>
           </TabPane>
         </Tabs>

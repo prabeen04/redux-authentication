@@ -66,14 +66,14 @@ const columns = [{
     age: 32,
     address: 'London No. 2 Lake Park',
   }];
-  
+
   function onChange(pagination, filters, sorter) {
     console.log('params', pagination, filters, sorter);
   }
 class SettingTable extends Component {
   render() {
     return (
-      <div>
+      <div style={{width: '100%'}}>
         <Table columns={columns} dataSource={data} onChange={onChange} />
       </div>
     )
