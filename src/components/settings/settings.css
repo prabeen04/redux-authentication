@@ -1,0 +1,10 @@
+.settings-wrapper{
+    margin: 0.5rem;
+    background: #fff;
+}
+.tab-content{
+    min-height: 75vh;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
