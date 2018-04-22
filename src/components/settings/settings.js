@@ -8,8 +8,10 @@ class Settings extends Component {
   render() {
     return (
       <div>
-        <Tabs defaultActiveKey="2">
-          <TabPane tab={<span><Icon type="apple" />Tab 1</span>} key="1">
+        <Tabs
+          defaultActiveKey="2"
+          tabBarStyle={{display: 'flex', justifyContent: 'center'}}>
+          <TabPane tab={<span><Icon type="apple" />Tab 1</span>} key="1" style={{color: 'red'}}>
             Tab 1
           </TabPane>
           <TabPane tab={<span><Icon type="android" />Tab 2</span>} key="2">
