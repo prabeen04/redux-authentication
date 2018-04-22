@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Tabs, Icon } from 'antd';
 import SettingTable from './setting_table';
+import SettingTimeline from './setting_timeline';
 import './settings.css';
 
 const TabPane = Tabs.TabPane;
@@ -19,7 +20,7 @@ class Settings extends Component {
           </TabPane>
           <TabPane tab={<span><Icon type="android" />Android Setting</span>} key="2">
             <div className="tab-content">
-                <h2>setting 2 section</h2>
+               <SettingTimeline/>
             </div>
           </TabPane>
         </Tabs>
