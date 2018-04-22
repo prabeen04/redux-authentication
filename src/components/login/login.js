@@ -39,32 +39,54 @@ class Login extends Component {
     }
     return (
       <div className="login-wrapper ">
-        <Tabs
-          defaultActiveKey="1"
-          tabBarStyle={{ display: 'flex', justifyContent: 'center' }}>
-          <TabPane tab={<span><Icon type="apple" />Apple Setting</span>} key="1">
-            <div className="login-box flex-container">
-              <h3>login</h3>
-              <form onSubmit={(e) => this.handleSubmit(e)}>
-                <div className="flex-container-column">
-                  <input type="email" name="email"
-                    value={this.state.email}
-                    onChange={(e) => this.handleChange(e)} required /><br />
-                  <input type="password" name="password"
-                    value={this.state.password}
-                    onChange={(e) => this.handleChange(e)} required /><br />
-                  <Button type="primary" loading={this.props.loggingIn} htmlType="submit" >LOGIN</Button>
-                </div>
-              </form>
-              {this.props.error && this.loginError()}
-            </div>
-          </TabPane>
-          <TabPane tab={<span><Icon type="android" />Android Setting</span>} key="2">
-            <div className="tab-content">
-              <h1>Register Component</h1>
-            </div>
-          </TabPane>
-        </Tabs>
+        <div className="login-box flex-container">
+          <Tabs
+            defaultActiveKey="1"
+            tabBarStyle={{ display: 'flex', justifyContent: 'center' }}>
+            <TabPane tab={<span><Icon type="apple" />Log In</span>} key="1">
+              <div>
+                <h3>login</h3>
+                <form onSubmit={(e) => this.handleSubmit(e)}>
+                  <div className="flex-container-column">
+                    <input type="email" name="email"
+                       placeholder="Email Address"
+                      value={this.state.email}
+                      onChange={(e) => this.handleChange(e)} required /><br />
+                    <input type="password" name="password"
+                       placeholder="Password"
+                      value={this.state.password}
+                      onChange={(e) => this.handleChange(e)} required /><br />
+                    <Button type="primary" loading={this.props.loggingIn} htmlType="submit" >LOGIN</Button>
+                  </div>
+                </form>
+                {this.props.error && this.loginError()}
+              </div>
+            </TabPane>
+            <TabPane tab={<span><Icon type="android" />Register</span>} key="2">
+              <div>
+                <h3>Register</h3>
+                <form>
+                  <div className="flex-container-column">
+                    <input type="text" name="username"
+                      placeholder="Username"
+                      value={this.state.email}
+                      onChange={(e) => this.handleChange(e)} required /><br />
+                    <input type="email" name="email"
+                       placeholder="Email Address"
+                      value={this.state.email}
+                      onChange={(e) => this.handleChange(e)} required /><br />
+                    <input type="password" name="password"
+                       placeholder="Password"
+                      value={this.state.password}
+                      onChange={(e) => this.handleChange(e)} required /><br />
+                    <Button type="primary" loading={this.props.loggingIn} htmlType="submit" >Register</Button>
+                  </div>
+                </form>
+                {this.props.error && this.loginError()}
+              </div>
+            </TabPane>
+          </Tabs>
+        </div>
       </div>
     )
   }
