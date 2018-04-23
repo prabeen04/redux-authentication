@@ -16,7 +16,7 @@ class App extends Component {
       <div>   
         <Switch>
           <Route exact path="/login" component={Login} />
-          <Route exact path="/completeRegistration" component={CompleteRegistration} />
+          <Route exact path="/verify/:completeRegistration?/:id" component={CompleteRegistration} />
           <PrivateRoute  path="/" component={Dashboard} />
        </Switch>   
       </div> 

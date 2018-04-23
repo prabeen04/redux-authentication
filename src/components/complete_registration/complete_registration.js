@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import './complete_registration.css';
 import { Steps, Button, message } from 'antd';
 const Step = Steps.Step;
@@ -20,6 +21,7 @@ class CompleteRegistration extends Component {
     this.state = {
       current: 0,
     };
+    console.log(this.props)
   }
   next() {
     const current = this.state.current + 1;
@@ -63,4 +65,4 @@ class CompleteRegistration extends Component {
     )
   }
 }
-export default CompleteRegistration;
+export default withRouter(CompleteRegistration);

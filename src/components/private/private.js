@@ -15,6 +15,7 @@ class Private extends Component {
     return (
       <div className="private-wrapper">
         <Button 
+            style={{float: 'right'}}
             type="primary"
             onClick={()=>this.props.logoutUser()}>Logout</Button>
         <h1>Private Component</h1>
