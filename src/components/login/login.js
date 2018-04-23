@@ -1,10 +1,11 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Link, Redirect } from 'react-router-dom';
-import { loginUser } from '../../actions/user_login'
+import Register from './register';
+import { loginUser } from '../../actions/user_login';
 import './login.css';
-import { Button, Icon, message, Tabs } from 'antd'
+import { Button, Icon, message, Tabs } from 'antd';
 const TabPane = Tabs.TabPane;
 class Login extends Component {
   constructor(props) {
@@ -62,26 +63,7 @@ class Login extends Component {
               </div>
             </TabPane>
             <TabPane tab={<span><Icon type="user-add" />Register</span>} key="2">
-              <div>
-                <form>
-                  <div className="flex-container-column">
-                    <input type="text" name=""
-                      placeholder="Username"
-                      value={this.state.email}
-                      onChange={(e) => this.handleChange(e)} required /><br />
-                    <input type="email" name=""
-                       placeholder="Email Address"
-                      value={this.state.email}
-                      onChange={(e) => this.handleChange(e)} required /><br />
-                    <input type="password" name=""
-                       placeholder="Password"
-                      value={this.state.password}
-                      onChange={(e) => this.handleChange(e)} required /><br />
-                    <Button type="primary" loading={this.props.loggingIn} htmlType="submit" >Register</Button>
-                  </div>
-                </form>
-                {this.props.error && this.loginError()}
-              </div>
+              <Register/>
             </TabPane>
           </Tabs>
         </div>

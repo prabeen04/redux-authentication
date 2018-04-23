@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Redirect } from 'react-router-dom';
 import { registerUser } from '../../actions/register_action';
 import { Button, Icon, message } from 'antd'
 
@@ -55,15 +56,21 @@ class Register extends Component {
                     <Button type="primary" loading={this.props.loggingIn} htmlType="submit" >Register</Button>
                   </div>
                 </form>
-                {this.props.error && this.loginError()}
+                {this.props.error && this.registerError()}
             </div>
         )
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        isRegistering: state.registerReducer.isRegistering,
+        error: state.registerReducer.error
+    }
+}
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
         registerUser
     }, dispatch)
 }
-export default connect(null, mapDispatchToProps)(Register);
+export default connect(mapStateToProps, mapDispatchToProps)(Register);
