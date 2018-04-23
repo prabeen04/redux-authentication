@@ -23,7 +23,7 @@ class Register extends Component {
       };
       handleSubmit = (e) => {
         e.preventDefault();
-        this.props.loginUser(this.state)
+        this.props.registerUser(this.state)
       }
       handleChange = (e) => {
         const name = e.target.name;
@@ -34,26 +34,23 @@ class Register extends Component {
         })
       }
     render() {
-        if (this.props.isLoggedIn) {
-            return <Redirect to='/' />
-          }
         return (
             <div>
-               <form>
+               <form onSubmit={(e) => this.handleSubmit(e)}>
                   <div className="flex-container-column">
-                    <input type="text" name=""
+                    <input type="text" name="username"
                       placeholder="Username"
-                      value={this.state.email}
+                      value={this.state.username}
                       onChange={(e) => this.handleChange(e)} required /><br />
-                    <input type="email" name=""
+                    <input type="email" name="email"
                        placeholder="Email Address"
                       value={this.state.email}
                       onChange={(e) => this.handleChange(e)} required /><br />
-                    <input type="password" name=""
+                    <input type="password" name="password"
                        placeholder="Password"
                       value={this.state.password}
                       onChange={(e) => this.handleChange(e)} required /><br />
-                    <Button type="primary" loading={this.props.loggingIn} htmlType="submit" >Register</Button>
+                    <Button type="primary" loading={this.props.isRegistering} htmlType="submit" >Register</Button>
                   </div>
                 </form>
                 {this.props.error && this.registerError()}

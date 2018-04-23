@@ -4,5 +4,7 @@ import { logoutReducer } from './logout_reducer'
 import { registerReducer } from './register_reducer' 
 
 export const rootReducer = combineReducers({
-    sessionReducer
+    sessionReducer,
+    registerReducer,
+    logoutReducer
 })

@@ -5,7 +5,7 @@ const initialState = {
     isError: ''
 }
 
-export const sessionReducer = (state = initialState, action) => {
+export const registerReducer = (state = initialState, action) => {
     switch (action.type) {
         case REGISTER:
             return Object.assign({}, state, { isRegistering: true })
