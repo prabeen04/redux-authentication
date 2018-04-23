@@ -13,7 +13,7 @@
     margin: 2rem;
     align-self: flex-end;
     border-radius: 0.5rem;
-    height: 400px;
+    height: auto;
     width: 450px;
 }
 input{
@@ -24,6 +24,7 @@ input{
     border-radius: 0.5rem;
     background: rgb(139, 148, 187); 
     padding: 0.2rem;
+    padding-left: 1rem;
     font-size: 1.5rem;
     transition: 0.3s all ease-in-out;
 }

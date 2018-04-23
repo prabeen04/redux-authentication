@@ -39,13 +39,12 @@ class Login extends Component {
     }
     return (
       <div className="login-wrapper ">
-        <div className="login-box flex-container">
+        <div className="login-box flex-container" style={{alignItems: 'flex-start'}}>
           <Tabs
             defaultActiveKey="1"
-            tabBarStyle={{ display: 'flex', justifyContent: 'center' }}>
-            <TabPane tab={<span><Icon type="apple" />Log In</span>} key="1">
+            tabBarStyle={{ display: 'flex', justifyContent: 'center'}}>
+            <TabPane tab={<span><Icon type="user" />Log In</span>} key="1">
               <div>
-                <h3>login</h3>
                 <form onSubmit={(e) => this.handleSubmit(e)}>
                   <div className="flex-container-column">
                     <input type="email" name="email"
@@ -62,20 +61,19 @@ class Login extends Component {
                 {this.props.error && this.loginError()}
               </div>
             </TabPane>
-            <TabPane tab={<span><Icon type="android" />Register</span>} key="2">
+            <TabPane tab={<span><Icon type="user-add" />Register</span>} key="2">
               <div>
-                <h3>Register</h3>
                 <form>
                   <div className="flex-container-column">
-                    <input type="text" name="username"
+                    <input type="text" name=""
                       placeholder="Username"
                       value={this.state.email}
                       onChange={(e) => this.handleChange(e)} required /><br />
-                    <input type="email" name="email"
+                    <input type="email" name=""
                        placeholder="Email Address"
                       value={this.state.email}
                       onChange={(e) => this.handleChange(e)} required /><br />
-                    <input type="password" name="password"
+                    <input type="password" name=""
                        placeholder="Password"
                       value={this.state.password}
                       onChange={(e) => this.handleChange(e)} required /><br />
