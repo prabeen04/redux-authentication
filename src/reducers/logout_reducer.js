@@ -8,7 +8,7 @@ const initialState = {
 export const logoutReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOGOUT_USER:
-            return Object.assign({}, state, { isLoggedOut: true })
+            return Object.assign({}, state, { isLoggedOut: true,  isLoggedOut: true  })
         case LOGOUT_USER_SUCCESS:
             return Object.assign({}, state, { isLoading: false, isLoggedOut: true })
         case LOGOUT_USER_FAILURE:

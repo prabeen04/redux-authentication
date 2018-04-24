@@ -13,7 +13,6 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 );
 
 const mapStateToProps = (state) => {
-    console.log(localStorage.token)
     return {
         isLoggedIn: state.sessionReducer.isLoggedIn,
         token: state.sessionReducer.token || JSON.stringify(localStorage.getItem('token'))
