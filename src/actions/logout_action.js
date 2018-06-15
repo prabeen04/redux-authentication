@@ -4,10 +4,10 @@ import { LOGOUT_USER, LOGOUT_USER_SUCCESS, LOGOUT_USER_FAILURE } from '../action
 
 const baseURL = 'https://prabeen-restapi.herokuapp.com/api/login';
 
-export const logoutUser = (user) => {
-    console.log(user)
+export const logoutUser = (history) => {
+    //console.log(user)
     localStorage.removeItem('token');
-    // history.push('/')
+     history.push('/login')
     return (dispatch) => {
         dispatch({
             type: LOGOUT_USER

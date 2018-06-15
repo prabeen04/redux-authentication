@@ -13,7 +13,7 @@ class Private extends Component {
     this.handleLogout = this.handleLogout.bind(this)
   }
   handleLogout = () => {
-    this.props.logoutUser();
+    this.props.logoutUser(this.props.history);
   }
   render() {
     console.log(this.props.isLoggedOut)
