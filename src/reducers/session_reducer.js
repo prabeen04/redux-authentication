@@ -17,7 +17,7 @@ export const sessionReducer = (state = initialState, action) => {
         case LOGIN_FAILURE:
             return Object.assign({}, state, { loggingIn: false, error:'Some error occoured...' })
         case LOGOUT_USER:
-            return Object.assign({}, state, { loggingIn: false })    
+            return Object.assign({}, state, { isLoggedIn: false })    
         default:
             return state
     }
