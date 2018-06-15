@@ -16,9 +16,7 @@ class Private extends Component {
     this.props.logoutUser(this.props.history);
   }
   render() {
-    console.log(this.props.isLoggedOut)
-    if (this.props.isLoggedOut) {
-      console.log(this.props.isLoggedOut)
+    if (!this.props.isLoggedIn) {
       this.props.history.push('/login')
     }
     return (
@@ -35,7 +33,7 @@ class Private extends Component {
 }
 const mapStateToProps = (state) => {
   return {
-    isLoggedOut: state.logoutReducer.isLoggedOut
+    isLoggedIn: state.sessionReducer.isLoggedIn
   }
 }
 const mapDispatchToProps = (dispatch) => {
