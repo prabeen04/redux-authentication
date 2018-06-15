@@ -2,7 +2,7 @@ import { LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE } from '../action_types/login_actio
 import axios from 'axios';
 import history from '../helpers/history';
 
-const baseURL = 'https://prabeen-restapi.herokuapp.com/api/login';
+const baseURL = 'https://prabeen-restapi.herokuapp.com/api/users';
 
 export const loginUser = (credential) => {
     return (dispatch) => {
